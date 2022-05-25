@@ -2,6 +2,8 @@
 import { Fragment } from "react"
 import { Disclosure, Menu, Transition } from "@headlessui/react"
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline"
+import Logo from "../img/logo.svg"
+import { FaUserCircle } from "react-icons/fa"
 
 const navigation = [
 	{ name: "Home", href: "/", current: false },
@@ -32,11 +34,7 @@ export default function Example() {
 							</div>
 							<div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
 								<div className="flex-shrink-0 flex items-center">
-									<img
-										className="block lg:block h-8 w-auto"
-										src="https://cdn-icons.flaticon.com/png/512/4390/premium/4390986.png?token=exp=1653422531~hmac=68877f60a7723f3a903c5b0200708218"
-										alt="Workflow"
-									/>
+									<img src={Logo} style={{ height: 35 }} />
 								</div>
 								<div className="hidden sm:block sm:ml-6">
 									<div className="flex space-x-4">
@@ -46,7 +44,7 @@ export default function Example() {
 												href={item.href}
 												className={classNames(
 													item.current ? "bg-gray-900 text-white" : "text-gray-300 hover:bg-gray-700 hover:text-white",
-													"px-3 py-2 rounded-md text-sm font-medium"
+													"px-3 py-2 rounded-md text-md font-medium"
 												)}
 												aria-current={item.current ? "page" : undefined}
 											>
@@ -57,24 +55,17 @@ export default function Example() {
 								</div>
 							</div>
 							<div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-								<button
-									type="button"
-									className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
-								>
+								<button type="button" className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white ">
 									<span className="sr-only">View notifications</span>
-									<BellIcon className="h-6 w-6" aria-hidden="true" />
+									<BellIcon className="h-6 w-6" aria-hidden="true" color="white" />
 								</button>
 
 								{/* Profile dropdown */}
 								<Menu as="div" className="ml-3 relative">
 									<div>
-										<Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+										<Menu.Button className="bg-gray-800 flex text-sm rounded-full">
 											<span className="sr-only">Open user menu</span>
-											<img
-												className="h-8 w-8 rounded-full"
-												src="https://cdn-icons.flaticon.com/png/512/3899/premium/3899618.png?token=exp=1653422577~hmac=1f74493c7ef0f47820fc2ef5bfe024ff"
-												alt=""
-											/>
+											<FaUserCircle size="25" color="white" />
 										</Menu.Button>
 									</div>
 									<Transition
